@@ -8,3 +8,10 @@ def index(request):
 def products(request):
     return render(request,'products.html')
 
+def main(request):
+    title = 'главная'
+    
+    products = Product.objects.all()[:4]
+        
+    content = {'title': title, 'products': products}
+    return render(request, 'mainapp/index.html', content)
